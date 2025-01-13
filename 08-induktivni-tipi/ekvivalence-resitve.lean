@@ -134,7 +134,7 @@ theorem map_reverse {A B : Type} {f : A → B} {xs : List A} : map f (reverse xs
       simp [reverse, map]
 
 inductive tree (A : Type) : Type where
-  | empty : tree A
+  | empty : tree kodkokoA
   | node : A → tree A → tree A → tree A
 
 #check tree.rec

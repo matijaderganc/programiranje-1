@@ -20,7 +20,33 @@
 #     [1, 1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 10]
 #
 ###############################################################################
-
+def merge(target, list1, list2):
+    i, j = 0, 0
+    n = 0
+    while i < (len(list1)) and j < (len(list2)):
+        if list1[i] <= list2[j]:
+            target[n] = list1[i]
+            n += 1
+            i += 1
+        else:
+            target[n] = list2[j]
+            n += 1
+            j += 1
+    if i == len(list1):
+        while j < len(list2):
+            target[n] = list2[j]
+            n += 1
+            j += 1
+    if j == len(list2):
+        while i < len(list1):
+            target[n] = list1[i]
+            n += 1
+            i += 1
+    return target
+list_1 = [1, 3, 5, 7, 10]
+list_2 = [1, 2, 3, 4, 5, 6, 7]
+target = [-1 for _ in range(len(list_1) + len(list_2))]
+print(merge(target, list_1, list_2))
 
 ###############################################################################
 # Tabelo želimo urediti z zlivanjem (merge sort). Tabelo razdelimo na polovici,
